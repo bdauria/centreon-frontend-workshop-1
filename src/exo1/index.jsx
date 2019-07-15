@@ -1,3 +1,5 @@
+import React from 'react';
+
 const LoadingIndicator = () => (
   <span style={{ fontFamily: "bold", fontSize: 14, color: "blue" }}>
     Loading...

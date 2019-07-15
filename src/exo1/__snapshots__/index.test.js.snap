@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exo1 renders nothing when loading is false 1`] = `null`;
+
+exports[`Exo1 renders with loading indicator when loading is true 1`] = `
+<span
+  style="font-family: bold; font-size: 14px; color: blue;"
+>
+  Loading...
+</span>
+`;

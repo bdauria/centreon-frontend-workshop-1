@@ -1,31 +1,17 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Exo1 from ".";
 
 describe("Exo1", () => {
-  it("is activated by default", () => {
-    const { getByText } = render(<Exo1 />);
+  it("renders with loading indicator when loading is true", () => {
+    const { container } = render(<Exo1 loading />);
 
-    expect(getByText(/Activated/)).toBeInTheDocument();
-    expect(getByText(/Activated/)).toHaveStyle("color: green");
+    expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("activates when clicking on activate", () => {
-    const { getByText } = render(<Exo1 />);
+  it("renders nothing when loading is false", () => {
+    const { container } = render(<Exo1 />);
 
-    fireEvent.click(getByText(/deactivate/i));
-
-    expect(getByText(/Deactivated/)).toBeInTheDocument();
-    expect(getByText(/Deactivated/)).toHaveStyle("color: red");
-  });
-
-  it("deactivates when clicking on deactivate", () => {
-    const { getByText } = render(<Exo1 />);
-
-    fireEvent.click(getByText(/Deactivate/));
-    fireEvent.click(getByText(/Activate/));
-
-    expect(getByText(/Activated/)).toBeInTheDocument();
-    expect(getByText(/Activated/)).toHaveStyle("color: green");
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

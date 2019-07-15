@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Example from "./example";
 import Exo1 from "./exo1";
 import Exo2 from "./exo2";
+import Exo3 from "./exo1";
 
 import "./styles.css";
 
@@ -25,12 +26,16 @@ function App() {
           <li>
             <Link to="/exo2">Exo2</Link>
           </li>
+          <li>
+            <Link to="/exo3">Exo2</Link>
+          </li>
         </ul>
       </div>
 
       <Route path="/example" exact component={Example} />
       <Route path="/exo1" exact component={Exo1} />
       <Route path="/exo2" exact component={Exo2} />
+      <Route path="/exo3" exact component={Exo3} />
     </Router>
   );
 }

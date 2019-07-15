@@ -1,22 +1,31 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import Exo2 from ".";
-import axios from "axios";
+import { render, fireEvent } from "@testing-library/react";
+import Exo1 from ".";
 
-describe("Exo2", () => {
-  const retrievedUsers = [{ name: "Bob" }, { name: "Alice " }];
+describe("Exo1", () => {
+  it("is activated by default", () => {
+    const { getByText } = render(<Exo1 />);
 
-  beforeEach(() => {
-    console.log("test");
+    expect(getByText(/Activated/)).toBeInTheDocument();
+    expect(getByText(/Activated/)).toHaveStyle("color: green");
   });
 
-  it("renders the names of retrieved users", async () => {
-    axios.get.mockImplementation(() =>
-      Promise.resolve({ data: { data: [1, 2, 3] } })
-    );
-    const { getByText, findByText } = render(<Exo2 />);
-    await findByText(/Total users/);
-    expect(getByText(/Bob/)).toBeInTheDocument();
+  it("activates when clicking on activate", () => {
+    const { getByText } = render(<Exo1 />);
+
+    fireEvent.click(getByText(/deactivate/i));
+
+    expect(getByText(/Deactivated/)).toBeInTheDocument();
+    expect(getByText(/Deactivated/)).toHaveStyle("color: red");
   });
-  it("renders the total number of users", () => {});
+
+  it("deactivates when clicking on deactivate", () => {
+    const { getByText } = render(<Exo1 />);
+
+    fireEvent.click(getByText(/Deactivate/));
+    fireEvent.click(getByText(/Activate/));
+
+    expect(getByText(/Activated/)).toBeInTheDocument();
+    expect(getByText(/Activated/)).toHaveStyle("color: green");
+  });
 });

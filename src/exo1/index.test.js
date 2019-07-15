@@ -1,5 +1,5 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Exo2 from ".";
+import Exo1 from ".";
 
-describe("Exo2", () => {});
+describe("Exo1", () => {});

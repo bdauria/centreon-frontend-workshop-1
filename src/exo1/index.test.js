@@ -4,14 +4,17 @@ import Exo1 from ".";
 
 describe("Exo1", () => {
   it("renders with loading indicator when loading is true", () => {
-    const { container } = render(<Exo1 loading />);
+    const { getByText } = render(<Exo1 loading />);
 
-    expect(container.firstChild).toMatchSnapshot();
+    const loadingIndicator = getByText(/Loading.../);
+    expect(loadingIndicator).toHaveStyle('font-familiy: bold');
+    expect(loadingIndicator).toHaveStyle('font-size: 14');
+    expect(loadingIndicator).toHaveStyle('color: blue');
   });
 
   it("renders nothing when loading is false", () => {
-    const { container } = render(<Exo1 />);
+    const { queryByText } = render(<Exo1 />);
 
-    expect(container.firstChild).toMatchSnapshot();
+    expect(queryByText(/Loading.../)).toBeNull();
   });
 });

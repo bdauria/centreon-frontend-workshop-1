@@ -4,14 +4,14 @@ import Exo2 from ".";
 
 describe("Exo2", () => {
   it("is activated by default", () => {
-    const { getByText } = render(<Exo1 />);
+    const { getByText } = render(<Exo2 />);
 
     expect(getByText(/Activated/)).toBeInTheDocument();
     expect(getByText(/Activated/)).toHaveStyle("color: green");
   });
 
   it("activates when clicking on activate", () => {
-    const { getByText } = render(<Exo1 />);
+    const { getByText } = render(<Exo2 />);
 
     fireEvent.click(getByText(/deactivate/i));
 
@@ -20,7 +20,7 @@ describe("Exo2", () => {
   });
 
   it("deactivates when clicking on deactivate", () => {
-    const { getByText } = render(<Exo1 />);
+    const { getByText } = render(<Exo2 />);
 
     fireEvent.click(getByText(/Deactivate/));
     fireEvent.click(getByText(/Activate/));

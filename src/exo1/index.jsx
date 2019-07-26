@@ -6,8 +6,8 @@ const LoadingIndicator = () => (
   </span>
 );
 
-const Exo3 = ({ loading }) => {
+const Exo1 = ({ loading }) => {
   return loading ? <LoadingIndicator /> : null;
 };
 
-export default Exo3;
+export default Exo1;
